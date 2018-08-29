@@ -1,10 +1,24 @@
 import {join} from 'lodash';
+import './style.css';
+import Icon from './icon.gif';
+import Data from './data.xml';
 
 function component() {
-  var element = document.createElement('div');
+  let element = document.createElement('div');
+  let p = document.createElement('p');
+  let myIcon;
+  
 
-  // Lodash（目前通过一个 script 脚本引入）对于执行这一行是必需的
   element.innerHTML = join(['Hello', 'webpack', 'fanergessss'], ' ');
+  element.classList.add('hello');
+
+  myIcon = new Image();
+  myIcon.src = './';
+  p.innerHTML = Data;
+  element.appendChild(p);
+  element.appendChild(myIcon);
+  
+  console.log(Data)
 
   return element;
 }
