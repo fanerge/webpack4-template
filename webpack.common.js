@@ -4,8 +4,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   entry: {
-    app: './src/index.js',
-    print: './src/print.js'
+    app: './src/index.js'
   },
   output: {
     filename: '[name].bundle.js',
@@ -50,6 +49,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'output Management'
     }),
-    new CleanWebpackPlugin(['dist']),
+    new CleanWebpackPlugin(['dist'])
   ]
 };

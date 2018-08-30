@@ -4,6 +4,9 @@
 	font-weight: 600;
 	font-style: normal;
 }
+body {
+	/*background: blue;*/
+}
 .hello {
   color: red;
   font-family: 'MyFont';
