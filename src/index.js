@@ -1,18 +1,27 @@
-import {join} from 'lodash';
+require('es6-promise').polyfill();
 import './style.css';
 import Icon from './icon.gif';
 import Data from './data.xml';
-import printMe from './print.js';
 import { cube } from './math.js';
+import { file, parse } from './global.js';
+
+// import _ from 'lodash';
+
+// 环境不同的处理
+// if (process.env.NODE_ENV !== 'production') {
+//   console.log('Looks like we are in development mode!');
+// }
+console.log(file, parse)
 
 function component() {
+
   let element = document.createElement('div');
 
-  element.innerHTML = join(['Hello', 'webpack', 'fanergess00006666'], ' ');
+  element.innerHTML = _.join(['Hello', 'webpack', 'fanergess00006666'], ' ');
   element.classList.add('hello');
 
   let myIcon = new Image();
-  myIcon.src = './';
+  myIcon.src = '';
   element.appendChild(myIcon);
 
   let p = document.createElement('p');
@@ -22,7 +31,10 @@ function component() {
 
   let btn = document.createElement('button');
   btn.innerHTML = 'click me';
-  btn.onclick = printMe;
+  btn.onclick = e => import(/* webpackChunkName: "print" */ './print').then(module => {
+    let print = module.default;
+    print();
+  })
   element.appendChild(btn);
 
   let pre = document.createElement('pre');
@@ -36,8 +48,9 @@ function component() {
   return element;
 }
 
-let element = component(); // 当 print.js 改变导致页面重新渲染时，重新获取渲染的元素
-document.body.appendChild(element);
+console.log($, 'sdf23');
+
+document.body.appendChild(component());
 
 if (module.hot) {
   module.hot.accept('./print.js', function() {
