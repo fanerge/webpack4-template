@@ -23,13 +23,19 @@ module.exports = {
   module: {
     rules: [
       {
-        test:/\.css/,
-        use:[MiniCssExtractPlugin.loader,"css-loader",{
-          loader: "postcss-loader",
-          options: {
-            plugins: () => [require('autoprefixer')]
-          }
-        }]
+        test:/\.css$/,
+        use: [
+            MiniCssExtractPlugin.loader,
+            "css-loader",
+            "postcss-loader"
+        ]
+      },
+      {
+        test: /\.js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: "babel-loader"
+        }
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)/,

@@ -4,11 +4,14 @@ import Icon from './assets/icon.gif';
 import Data from './assets/data.xml';
 import { cube } from './js/math.js';
 import { file, parse } from './js/global.js';
+import print from './js/print.js';
 
 // 环境不同的处理
 // if (process.env.NODE_ENV !== 'production') {
 //   console.log('Looks like we are in development mode!');
 // }
+debugger;
+[1,2,3].includes(2)
 
 function component() {
 
@@ -28,10 +31,7 @@ function component() {
 
   let btn = document.createElement('button');
   btn.innerHTML = 'click me';
-  btn.onclick = e => import(/* webpackChunkName: "print" */ './js/print').then(module => {
-    let print = module.default;
-    print();
-  })
+  btn.onclick = print;
   element.appendChild(btn);
 
   let pre = document.createElement('pre');

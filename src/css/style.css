@@ -11,5 +11,5 @@ body {
   color: red;
   font-family: 'MyFont';
   background: url('../assets/icon.gif');
-  text-transform: scale(0.5);
+  border-radius: 10px;
 }
