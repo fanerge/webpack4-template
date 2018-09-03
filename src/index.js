@@ -1,9 +1,9 @@
 require('es6-promise').polyfill();
-import './style.css';
-import Icon from './icon.gif';
-import Data from './data.xml';
-import { cube } from './math.js';
-import { file, parse } from './global.js';
+import './css/style.css';
+import Icon from './asset/icon.gif';
+import Data from './asset/data.xml';
+import { cube } from './js/math.js';
+import { file, parse } from './js/global.js';
 
 // 环境不同的处理
 // if (process.env.NODE_ENV !== 'production') {
@@ -28,7 +28,7 @@ function component() {
 
   let btn = document.createElement('button');
   btn.innerHTML = 'click me';
-  btn.onclick = e => import(/* webpackChunkName: "print" */ './print').then(module => {
+  btn.onclick = e => import(/* webpackChunkName: "print" */ './js/print').then(module => {
     let print = module.default;
     print();
   })
@@ -50,7 +50,7 @@ console.log($, 'sdf23');
 document.body.appendChild(component());
 
 if (module.hot) {
-  module.hot.accept('./print.js', function() {
+  module.hot.accept('./js/print.js', function() {
     console.log('Accepting the updated printMe module!');
     document.body.removeChild(element);
     element = component(); // 重新渲染页面后，component 更新 click 事件处理

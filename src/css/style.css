@@ -1,6 +1,6 @@
 @font-face {
 	font-family: 'MyFont';
-	src: url('./font.woff') format('woff');
+	src: url('../asset/font.woff') format('woff');
 	font-weight: 600;
 	font-style: normal;
 }
@@ -10,5 +10,5 @@ body {
 .hello {
   color: red;
   font-family: 'MyFont';
-  background: url('./icon.gif');
+  background: url('../asset/icon.gif');
 }

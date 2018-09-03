@@ -8,7 +8,7 @@ const webpack = require('webpack');
 module.exports = {
   entry: {
     main: './src/index.js',
-    polyfills: './src/polyfills.js',
+    polyfills: './src/js/polyfills.js',
     // 把库分离出来
     vendor: [
       'lodash',
@@ -56,7 +56,7 @@ module.exports = {
         ]
       },
       {
-        test: require.resolve('./src/global.js'),
+        test: require.resolve('./src/js/global.js'),
         use: 'exports-loader?file,parse=helpers.parse'
       }
     ]
