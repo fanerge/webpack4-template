@@ -1,7 +1,7 @@
 require('es6-promise').polyfill();
 import './css/style.css';
-import Icon from './asset/icon.gif';
-import Data from './asset/data.xml';
+import Icon from './assets/icon.gif';
+import Data from './assets/data.xml';
 import { cube } from './js/math.js';
 import { file, parse } from './js/global.js';
 

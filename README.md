@@ -63,4 +63,5 @@ url-loader 功能类似于 file-loader，但是在文件大小（单位 byte）�
 重写模块内的this，默认CommonJS内的this 指向 module.exports
 ##  exports-loader
 将一个全局变量作为一个普通的模块来导出（对于老的库很有用）。
+<br/>
 [loaders](https://www.webpackjs.com/loaders/)
