@@ -1,6 +1,9 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const webpack = require('webpack');
+// service worker
+// const WorkboxPlugin = require('workbox-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -20,11 +23,13 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/,
-        use: [
-          'style-loader',
-          'css-loader'
-        ]
+        test:/\.css/,
+        use:[MiniCssExtractPlugin.loader,"css-loader",{
+          loader: "postcss-loader",
+          options: {
+            plugins: () => [require('autoprefixer')]
+          }
+        }]
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)/,
@@ -58,7 +63,13 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Caching'
+      title: 'PWA'
+    }),
+    new MiniCssExtractPlugin({
+      // Options similar to the same options in webpackOptions.output
+      // both options are optional
+      filename: "[name].css",
+      chunkFilename: "[id].css"
     }),
     // 在模块内可以使用lodash 或 jquery 了
     new webpack.ProvidePlugin({

@@ -5,13 +5,10 @@ import Data from './data.xml';
 import { cube } from './math.js';
 import { file, parse } from './global.js';
 
-// import _ from 'lodash';
-
 // 环境不同的处理
 // if (process.env.NODE_ENV !== 'production') {
 //   console.log('Looks like we are in development mode!');
 // }
-console.log(file, parse)
 
 function component() {
 
