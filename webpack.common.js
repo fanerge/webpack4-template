@@ -82,8 +82,8 @@ module.exports = {
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
       // both options are optional
-      filename: "[name].css",
-      chunkFilename: "[id].css"
+      filename: "[name].[hash].css",
+      chunkFilename: "[id].[hash].css"
     }),
     // 在模块内可以使用lodash 或 jquery 了
     new webpack.ProvidePlugin({
